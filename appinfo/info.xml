@@ -51,7 +51,7 @@ Don't hesitate to leave a comment here or a rating!
 	<repository type="git">https://github.com/callmemagnus/nextcloud-searchpage.git</repository>
 	<screenshot>https://raw.githubusercontent.com/callmemagnus/nextcloud-searchpage/main/screenshots/main.png</screenshot>
     <dependencies>
-        <nextcloud min-version="27" max-version="28"/>
+        <nextcloud min-version="26" max-version="29"/>
     </dependencies>
     <navigations>
         <navigation>

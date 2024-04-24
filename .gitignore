@@ -11,3 +11,4 @@ js/*hot-update.*
 js
 /.php-cs-fixer.cache
 coverage
+.playwright

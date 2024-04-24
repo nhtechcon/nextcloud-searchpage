@@ -4,6 +4,15 @@
 
 - New admin screen in (additional settings) to configure (mostly hide) providers globally or per user group
 
+## [v1.2.7](https://github.com/callmemagnus/nextcloud-searchpage/compare/v1.2.6...v1.2.7)
+
+- translations updates
+- change Nextcloud compatibility to 26 ➙ 29
+
+## [v1.2.6](https://github.com/callmemagnus/nextcloud-searchpage/compare/v1.2.5...v1.2.6)
+
+- translations updates as sync with Transifex is back !
+
 ## [v1.2.5](https://github.com/callmemagnus/nextcloud-searchpage/compare/v1.2.4...v1.2.5)
 
 - translations updates as sync with Transifex is back !
