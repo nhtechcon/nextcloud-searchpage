@@ -10,6 +10,7 @@
 
 	import type { Provider } from '../states/providers';
 	import Result from './Result.svelte';
+	import FilePreview from './FilePreview.svelte';
 
 	export let provider: Provider;
 	export let query: string;
@@ -21,6 +22,7 @@
 	let cursor = 0;
 	let searchResults: SearchEntry[] | null = null;
 	let button: HTMLButtonElement;
+	let hoveredId: string | null = null;
 
 	const dispatch = createEventDispatcher();
 
@@ -110,19 +112,31 @@
 	{#if !searchResults}
 		<p>{translate(APP_NAME, 'Loading...')}</p>
 	{:else}
-		<div class="mwb-result-scroll">
-			{#each searchResults as result}
-				<div class="mwb-result-item">
-					<Result {result} />
-				</div>
-			{:else}
-				<p>{translate(APP_NAME, 'No results')}</p>
-			{/each}
-			{#if searchResults.length && hasMore}
-				<div>
-					<button bind:this={button} disabled={loading} on:click={() => load(cursor)}>
-						{loading ? translate(APP_NAME, 'Loading...') : translate(APP_NAME, 'Load more...')}
-					</button>
+		<div class="results-wrapper">
+			<div class="mwb-result-scroll">
+				{#each searchResults as result}
+					<div
+						class="mwb-result-item"
+						on:mouseenter={() => (hoveredId = result.attributes?.fileId || null)}
+        				on:mouseleave={() => hoveredId = null}
+					>
+						<Result {result} />
+					</div>
+				{:else}
+					<p>{translate(APP_NAME, 'No results')}</p>
+				{/each}
+				{#if searchResults.length && hasMore}
+					<div>
+						<button bind:this={button} disabled={loading} on:click={() => load(cursor)}>
+							{loading ? translate(APP_NAME, 'Loading...') : translate(APP_NAME, 'Load more...')}
+						</button>
+					</div>
+				{/if}
+			</div>
+
+			{#if isAlone && provider.id === 'files'}
+				<div class="preview-panel">
+					<FilePreview fileId={hoveredId} />
 				</div>
 			{/if}
 		</div>
@@ -143,6 +157,17 @@
 	/* .mwb-is-alone h2 {
 		@apply text-2xl;
 	} */
+	.results-wrapper {
+		@apply h-full w-full flex flex-row;
+
+		.preview-panel {
+			@apply p-4;
+			height: 80%;
+			width: 30%;
+			max-width: 600px;
+			overflow: hidden;
+		}
+	}
 	.mwb-result-scroll {
 		@apply overflow-y-scroll h-full flex-grow;
 	}
