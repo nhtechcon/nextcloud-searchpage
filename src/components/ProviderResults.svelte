@@ -118,7 +118,7 @@
 					<div
 						class="mwb-result-item"
 						on:mouseenter={() => (hoveredId = result.attributes?.fileId || null)}
-        				on:mouseleave={() => hoveredId = null}
+						on:mouseleave={() => hoveredId = null}
 					>
 						<Result {result} />
 					</div>
