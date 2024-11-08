@@ -6,6 +6,10 @@ import { generateOcsUrl } from '@nextcloud/router';
 import type { Provider } from '../states/providers';
 import TimedCache from './TimedCache';
 
+export type FileEntryAttributes = {
+	fileId?: string;
+	path?: string;
+};
 export type SearchEntry = {
 	thumbnailUrl: string;
 	title: string;
@@ -13,6 +17,7 @@ export type SearchEntry = {
 	resourceUrl: string;
 	icon: string;
 	rounded: boolean;
+	attributes?: FileEntryAttributes;
 };
 export type SearchResult = {
 	providerId: string;
