@@ -56,6 +56,8 @@
 			} else {
 				removeFromHash('providerId');
 			}
+		} else {
+			focusedProvider = 'files';
 		}
 	});
 
