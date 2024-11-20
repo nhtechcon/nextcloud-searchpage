@@ -8,23 +8,20 @@
 	let imageLoaded: boolean = false;
 </script>
 
-<div class="preview-wrapper">
-	<img
-		src={imageUrl}
-		alt="File preview"
-		on:error={() => imageLoaded = false}
-		on:load={() => imageLoaded = true}
-		style:display={imageLoaded ? "block" : "none"} 
-	/>
-</div>
+<img
+	src={imageUrl}
+	alt="File preview"
+	on:error={() => imageLoaded = false}
+	on:load={() => imageLoaded = true}
+	style:display={imageLoaded ? "block" : "none"} 
+/>
 
 <style lang="less">
-	.preview-wrapper {
-		@apply w-full h-full flex items-center justify-center overflow-hidden p-4;
-
-		img {
-			@apply w-full h-auto;
-			box-shadow: 0px 0px 8px #7d7d7d;
-		}
+	img {
+		object-fit: contain;
+		object-position: center;
+		box-shadow: 0px 0px 8px #7d7d7d;
+		max-width: 100%;
+		max-height: 100%;
 	}
 </style>
