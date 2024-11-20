@@ -63,9 +63,9 @@
 		{/if}
 	</div>
 	<div class="mwb-text">
-		<h3 class="mwb-ellipsis">
+		<h4 class="mwb-ellipsis">
 			<BoldTerms original={result.title} terms={$terms} />
-		</h3>
+		</h4>
 		{#if result.subline}
 			<p class="mwb-ellipsis">
 				<BoldTerms original={result.subline} terms={$terms} />
@@ -91,7 +91,7 @@
 		@apply h-full;
 	}
 
-	h3 {
+	h4 {
 		@apply mt-1 mb-0;
 	}
 
