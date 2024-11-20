@@ -144,38 +144,39 @@
 </div>
 
 <style lang="less">
-	.mwb-provider-results {
-		@apply px-4 py-2 shadow-xl h-full w-full flex flex-col rounded-xl;
-		background-color: var(--color-main-background);
-	}
-	.mwb-is-alone {
-		@apply shadow-none px-2;
-	}
 	h2 {
 		@apply mb-4;
 	}
 	/* .mwb-is-alone h2 {
 		@apply text-2xl;
 	} */
+	.mwb-is-alone {
+		@apply shadow-none px-2;
+	}
+	
+	.mwb-provider-results {
+		@apply px-4 py-2 shadow-xl h-full w-full flex flex-col rounded-xl;
+		background-color: var(--color-main-background);
+	}
+	.mwb-header {
+		@apply flex justify-between;
+	}
 	.results-wrapper {
-		@apply h-full w-full flex flex-row;
-
-		.preview-panel {
-			@apply p-4;
-			height: 80%;
-			width: 30%;
-			max-width: 600px;
-			overflow: hidden;
-		}
+		 @apply h-full w-full flex flex-row overflow-y-scroll;
+		 margin: 2px;
 	}
 	.mwb-result-scroll {
 		@apply overflow-y-scroll h-full flex-grow;
 	}
-	.mwb-is-alone .mwb-result-scroll {
-		@apply h-auto overflow-auto;
-	}
-	.mwb-header {
-		@apply flex justify-between;
+	.preview-panel {
+		position: relative;
+		@apply p-4 h-full;
+		width: 40%;
+		max-width: 40vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
 	}
 	small {
 		@apply text-xs;
